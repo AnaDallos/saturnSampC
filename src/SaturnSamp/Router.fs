@@ -23,26 +23,29 @@ let browserRouter = router {
     pipe_through browser //Use the default browser pipeline
     forward "" defaultView //Use the default view
     forward "/books" Books.Controller.resource //added by tutorial
-    forward "/hello" Hello.Controller.helloView 
-    forward "/hello2" Hello.Controller.helloView2 
-    forward "/profile" Profiles.Controller.resource //added by us
+    //forward "/hello" Hello.Controller.helloView 
+    //forward "/hello2" Hello.Controller.helloView2 
+    forward "/profile" Profiles.Controller.resource
+    forward "/profile2" ApiProfiles.Controller.ApiProfileHW
+    //forward "/api" Profiles.Controller.ProfileApiAction
+    //forward "/api" appRouter
 }
 
 //Other scopes may use different pipelines and error handlers
-(*
+
 let api = pipeline {
-     plug acceptJson
+     //plug acceptJson
+     plug acceptHtml   
      set_header "x-pipeline-type" "Api"
 }
 
 let apiRouter = router {
-     error_handler (text "Api 404")
-     pipe_through api
-
-     forward "/someApi" someScopeOrController
+    pipe_through api
+    forward "/hw" ApiProfiles.Controller.ApiProfileHW
+    //forward "" 
 }
-*)
+
 let appRouter = router {
-//    forward "/api" apiRouter
     forward "" browserRouter
+    forward "/api" apiRouter
 }

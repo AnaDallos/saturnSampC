@@ -18,13 +18,15 @@
     <Compile Include="Books\BooksRepository.fs" />
     <Compile Include="Books\BooksController.fs" />
 
-    <Compile Include="Hello\HelloViews.fs" />
-    <Compile Include="Hello\HelloController.fs" />
-
     <Compile Include="Profiles\ProfilesModel.fs" />
     <Compile Include="Profiles\ProfilesViews.fs" />
     <Compile Include="Profiles\ProfilesRepository.fs" />
     <Compile Include="Profiles\ProfilesController.fs" />
+
+    <Compile Include="ApiProfiles\ApiProfileController.fs" />
+    <Compile Include="ApiProfiles\ApiProfileViews.fs" />
+    
+
     <Compile Include="Router.fs" />
     <Compile Include="Program.fs" />
 
